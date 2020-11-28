@@ -37,10 +37,8 @@ class Client(Cmd):
         pic.getPic()
 
     def do_3(self, arg):
-        soundData = 0
-        picData = 0
-        request.sendSound(soundData)
-        request.sendPic(picData)
+        request.sendSound()
+        request.sendPic()
 
     def do_4(self, arg):
         print("再见！")
