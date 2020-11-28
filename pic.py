@@ -13,4 +13,6 @@ def getPic():
         sleep(1)
     camera.capture(config.PIC_OUTPUT_FILENAME)
     camera.stop_preview()
+    print('* Picture captured')
+    return 0
 
