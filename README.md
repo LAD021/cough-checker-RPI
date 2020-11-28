@@ -14,7 +14,7 @@ Hardware needed:
 
 2.a sound recording device
 
-3.a camer
+3.a picamera
 
 > Below is my software environment
 
@@ -28,4 +28,3 @@ Software needed:
 
 ### Configs:
 
-please choose your device No.
