@@ -10,11 +10,11 @@ def test():
 
 def sendSound(data):
     url = config.URL + config.COUGH
-    print(url)
     r = requests.post(url, data)
     print(r.content)
 
-def sendPic():
+def sendPic(data):
     url = config.URL + config.FIGURE
     r = requests.post(url, data)
+    print(r.content)
 

@@ -2,7 +2,7 @@
 
 # sound.py
 CHANNELS = 1
-RECORD_SECONDS = 10 
+RECORD_SECONDS = 20 
 WAVE_OUTPUT_FILENAME = './output/sound.wav'
 
 # pic.py

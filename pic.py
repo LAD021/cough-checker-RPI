@@ -9,10 +9,11 @@ def getPic():
     camera.rotation = config.CAM_ROTATION 
     camera.start_preview()
     for i in range(3):
-        print('* Going to capture: {}'.format(3 - i))
+        print('* 准备拍摄，倒计时: {}'.format(3 - i))
         sleep(1)
     camera.capture(config.PIC_OUTPUT_FILENAME)
     camera.stop_preview()
-    print('* Picture captured')
+    camera.close()
+    print('* 拍摄成功')
     return 0
 

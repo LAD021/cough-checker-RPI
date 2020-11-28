@@ -20,16 +20,17 @@ def getSound():
                         rate=RATE,
                         input=True,
                         frames_per_buffer=CHUNK)
-        print("* recording")
+        print("* 开始记录")
 
         frames = []
-
+        forward = RECORD_SECONDS
         for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+            now = RECORD_SECONDS - i / (RATE / CHUNK)
+            if now < forward:
+                print("* 还有{}秒".format(now))
+                forward = now
             data = stream.read(CHUNK, exception_on_overflow=False)
             frames.append(data)
-    #        print("* recording")
-
-        print("* done recording")
 
         stream.stop_stream()
         stream.close()
@@ -44,6 +45,7 @@ def getSound():
 
         val = os.system("ffmpeg -y -i ./output/sound.wav ./output/sound.mp3")
         print(val)
+        print("* 记录完成")        
 
         return 0
     
