@@ -4,6 +4,7 @@ import pyaudio
 import wave
 import config
 import os
+from pydub import AudioSegment
 
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
@@ -43,12 +44,18 @@ def getSound():
         wf.writeframes(b''.join(frames))
         wf.close()
 
-        val = os.system("ffmpeg -y -i ./output/sound.wav ./output/sound.mp3")
-        print(val)
+        val = os.system("ffmpeg -y -i ./output/sound.wav ./output/soundp.mp3")
+#        print(val)
+        sound = AudioSegment.from_mp3("./output/soundp.mp3")
+        louder_sound = sound + 10 
+        louder_sound.export("./output/sound.mp3", format='mp3')
+        
         print("* 记录完成")        
 
         return 0
     
-    except:
+    except Exception as e:
+        print(e)
+        p.terminate()
         return -1
 
